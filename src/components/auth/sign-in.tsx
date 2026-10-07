@@ -5,7 +5,7 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { signIn } from "@/lib/auth/client";
 
-export function SignInButton({ callbackUrl }: { callbackUrl: string }) {
+export function SignIn({ callbackUrl }: { callbackUrl: string }) {
   const translations = { login: useTranslations("login") };
   const [pending, setPending] = useState(false);
 

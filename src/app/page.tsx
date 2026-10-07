@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import { getTranslations } from "next-intl/server";
-import { SignOutButton } from "@/components/auth/sign-out-button";
+import { SignOut } from "@/components/auth/sign-out";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { session } from "@/lib/auth/server";
 
@@ -18,7 +18,7 @@ export default async function Home() {
           <CardDescription>{translations.home("signedInAs", { email: user.email })}</CardDescription>
         </CardHeader>
         <CardContent>
-          <SignOutButton />
+          <SignOut />
         </CardContent>
       </Card>
     </main>

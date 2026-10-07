@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import { SignInButton } from "@/components/auth/sign-in-button";
+import { SignIn } from "@/components/auth/sign-in";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default async function SignInPage({ searchParams }: PageProps<"/sign-in">) {
@@ -16,7 +16,7 @@ export default async function SignInPage({ searchParams }: PageProps<"/sign-in">
           <CardDescription>{translations.login("description")}</CardDescription>
         </CardHeader>
         <CardContent>
-          <SignInButton callbackUrl={target} />
+          <SignIn callbackUrl={target} />
         </CardContent>
       </Card>
     </main>

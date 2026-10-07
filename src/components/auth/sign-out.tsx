@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { signOut } from "@/lib/auth/client";
 
-export function SignOutButton() {
+export function SignOut() {
   const translations = { home: useTranslations("home") };
   const router = useRouter();
 
