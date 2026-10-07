@@ -65,17 +65,8 @@
     "signOut": "Sign out"
   },
   "clusters": {
-    "description": "Clusters managed by Cluster API.",
     "empty": "No cluster yet.",
-    "count": "{count, plural, one {# cluster} other {# clusters}}",
-    "columns": {
-      "name": "Name",
-      "status": "Status",
-      "version": "Version",
-      "controlPlane": "Control plane",
-      "workers": "Workers",
-      "age": "Age"
-    }
+    "actions": "Actions"
   },
   "cluster": {
     "facts": {
@@ -83,7 +74,27 @@
       "controlPlane": "Control plane",
       "workers": "Workers",
       "endpoint": "API endpoint",
-      "ready": "{ready} of {desired} ready"
+      "ready": "{ready} of {desired} ready",
+      "podsCidr": "pods {cidr}",
+      "zones": "zones {zones}"
+    },
+    "subtitle": "Kubernetes cluster on OpenStack, zones {zones}.",
+    "kubeconfig": "Kubeconfig",
+    "scale": {
+      "label": "Workers",
+      "add": "Add a worker",
+      "remove": "Remove a worker",
+      "apply": "Apply",
+      "success": "Scaling to {count, plural, one {# worker} other {# workers}}"
+    },
+    "tabs": {
+      "label": "Sections",
+      "machines": "Machines",
+      "addons": "Addons",
+      "network": "Network",
+      "conditions": "Conditions",
+      "manifest": "Manifest",
+      "events": "Events"
     }
   },
   "machines": {
@@ -134,5 +145,70 @@
     "badRequest": "The request is invalid.",
     "internal": "The cluster API could not be reached.",
     "unknown": "Something went wrong."
+  },
+  "addons": {
+    "empty": "No addon targets this cluster.",
+    "namespace": "Namespace {namespace}",
+    "status": {
+      "deployed": "Deployed",
+      "pending": "Pending",
+      "failed": "Failed",
+      "uninstalled": "Removed"
+    }
+  },
+  "network": {
+    "empty": "No managed load balancer.",
+    "columns": {
+      "name": "Name",
+      "publicIp": "Public IP",
+      "internalIp": "Internal IP",
+      "cidr": "CIDR",
+      "role": "Role"
+    },
+    "loadBalancer": {
+      "title": "API server load balancer",
+      "note": "managed by CAPO"
+    },
+    "subnets": {
+      "title": "Subnets"
+    },
+    "router": {
+      "title": "Router"
+    },
+    "securityGroups": {
+      "title": "Security groups"
+    },
+    "roles": {
+      "controlPlane": "Control plane",
+      "worker": "Worker"
+    }
+  },
+  "conditions": {
+    "ok": "Healthy",
+    "failing": "Needs attention"
+  },
+  "manifest": {
+    "title": "Cluster resource",
+    "copy": "Copy",
+    "copied": "Copied",
+    "copyError": "Could not copy to the clipboard."
+  },
+  "events": {
+    "empty": "No recent event."
+  },
+  "dialog": {
+    "delete": {
+      "trigger": "Delete",
+      "title": "Delete {name}?",
+      "description": "This removes the cluster and all its machines. Type {name} to confirm.",
+      "confirmLabel": "Type {name} to confirm",
+      "cancel": "Cancel",
+      "confirm": "Delete cluster",
+      "success": "Deleting {name}"
+    }
+  },
+  "rules": {
+    "scaleBounds": "The worker count must be between 0 and 20.",
+    "kubeconfigNotReady": "The kubeconfig is not available yet."
   }
 }
