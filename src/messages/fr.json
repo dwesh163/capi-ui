@@ -129,8 +129,7 @@
         "bad": "À vérifier"
       },
       "count": "{shown} sur {total}"
-    },
-    "strip": "Machines en un coup d'œil"
+    }
   },
   "status": {
     "phase": {

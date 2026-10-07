@@ -4,7 +4,6 @@ import { ClusterHead } from "@/components/cluster/head";
 import { ClusterScale } from "@/components/cluster/scale";
 import { ClusterPanel } from "@/components/cluster/tab/panel";
 import { ClusterTabs } from "@/components/cluster/tabs";
-import { MachineStrip } from "@/components/machine/strip";
 import { EntityNotFound } from "@/components/not-found";
 import { toTab } from "@/constants/cluster";
 import { IDENTITIES } from "@/constants/resources";
@@ -28,7 +27,6 @@ export default async function ClusterPage({ params, searchParams }: PageProps<"/
   return (
     <div className="flex flex-col gap-6">
       <ClusterHead cluster={cluster} />
-      <MachineStrip machines={items} />
       <ClusterFacts cluster={cluster} />
       <section aria-label={translations.clusters("actions")} className="flex flex-wrap items-center gap-x-10 gap-y-3.5">
         <ClusterScale key={cluster.workers.desired} name={cluster.name} workers={cluster.workers.desired} />
