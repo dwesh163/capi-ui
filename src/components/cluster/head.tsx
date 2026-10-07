@@ -12,7 +12,7 @@ export async function ClusterHead({ cluster }: { cluster: Cluster }) {
   return (
     <header className="flex flex-wrap items-end justify-between gap-x-5 gap-y-3.5">
       <div>
-        <h1 className="flex flex-wrap items-center gap-3.5 text-[clamp(26px,4vw,34px)] leading-tight font-semibold tracking-[-0.03em]">
+        <h1 className="flex flex-wrap items-center gap-3.5 text-[clamp(30px,5vw,44px)] leading-none font-semibold tracking-[-0.035em]">
           {cluster.name}
           <span className="font-sans text-sm font-normal tracking-normal">
             <Phase phase={cluster.phase} tone={cluster.state} />

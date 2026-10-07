@@ -6,10 +6,23 @@ import { ManifestTab } from "@/components/cluster/tab/manifest";
 import { NetworkTab } from "@/components/cluster/tab/network";
 import type { Tab } from "@/constants/cluster";
 import type { Cluster } from "@/types/cluster";
+import type { Machine } from "@/types/machine";
 import type { Query } from "@/types/query";
 
 // Picks the panel for the selected tab; each panel loads only its own data.
-export function ClusterPanel({ cluster, tab, query }: { cluster: Cluster; tab: Tab; query: Query }) {
+export function ClusterPanel({
+  cluster,
+  machines,
+  machinesError,
+  tab,
+  query,
+}: {
+  cluster: Cluster;
+  machines: Machine[];
+  machinesError: string | null;
+  tab: Tab;
+  query: Query;
+}) {
   switch (tab) {
     case "addons":
       return <AddonsTab name={cluster.name} />;
@@ -22,6 +35,6 @@ export function ClusterPanel({ cluster, tab, query }: { cluster: Cluster; tab: T
     case "events":
       return <EventsTab name={cluster.name} />;
     default:
-      return <MachinesTab name={cluster.name} query={query} />;
+      return <MachinesTab machines={machines} error={machinesError} query={query} />;
   }
 }

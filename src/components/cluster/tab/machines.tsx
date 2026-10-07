@@ -2,17 +2,14 @@ import { Frame } from "@/components/cluster/tab/frame";
 import { MachineFilters } from "@/components/machine/filters";
 import { MachineTable } from "@/components/machine/table";
 import { ROLES, STATUS_TONES, STATUSES } from "@/constants/machine";
-import { load } from "@/lib/load";
-import { machines } from "@/services/machines";
+import type { Machine } from "@/types/machine";
 import type { Query } from "@/types/query";
 
-export async function MachinesTab({ name, query }: { name: string; query: Query }) {
-  const { data, error } = await load(machines.list(name), []);
-
+export function MachinesTab({ machines, error, query }: { machines: Machine[]; error: string | null; query: Query }) {
   const q = typeof query.q === "string" ? query.q.trim().toLowerCase() : "";
   const role = ROLES.find((value) => value === query.role);
   const status = STATUSES.find((value) => value === query.status);
-  const shown = data.filter(
+  const shown = machines.filter(
     (machine) =>
       (!q || machine.name.toLowerCase().includes(q) || machine.ip?.includes(q)) &&
       (!role || machine.role === role) &&
@@ -21,7 +18,7 @@ export async function MachinesTab({ name, query }: { name: string; query: Query 
 
   return (
     <div className="flex flex-col gap-3">
-      <MachineFilters shown={shown.length} total={data.length} />
+      <MachineFilters shown={shown.length} total={machines.length} />
       <Frame error={error}>
         <MachineTable machines={shown} />
       </Frame>
