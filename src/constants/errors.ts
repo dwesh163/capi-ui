@@ -43,3 +43,14 @@ export class InternalServerError extends ExpectedError {
     this.name = "InternalServerError";
   }
 }
+
+// A business-rule rejection with a specific translated message. `.code` reproduces the
+// "rules.<key>" wire format so the client can key a translation off it directly.
+export class RuleError extends ExpectedError {
+  readonly code: string;
+  constructor(readonly rule: string) {
+    super(rule);
+    this.name = "RuleError";
+    this.code = `rules.${rule}`;
+  }
+}
