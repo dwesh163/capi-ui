@@ -4,6 +4,9 @@ import { AppSidebar } from "@/components/layout/sidebar";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { session } from "@/lib/auth/server";
 
+// Reads the session and request data: this segment renders per request.
+export const instant = false;
+
 export default async function AppLayout({ children }: LayoutProps<"/">) {
   const current = await session();
   if (!current) redirect("/sign-in");

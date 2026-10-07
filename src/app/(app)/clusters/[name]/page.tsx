@@ -9,6 +9,9 @@ import { load } from "@/lib/load";
 import { clusters } from "@/services/clusters";
 import { machines } from "@/services/machines";
 
+// Reads the session and request data: this segment renders per request.
+export const instant = false;
+
 export default async function ClusterPage({ params }: PageProps<"/clusters/[name]">) {
   const { name } = await params;
   const translations = { machines: await getTranslations("machines"), entities: await getTranslations("entities") };

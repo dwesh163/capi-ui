@@ -2,6 +2,9 @@ import { getTranslations } from "next-intl/server";
 import { ClusterTable } from "@/components/cluster/table";
 import { clusters as clustersApi } from "@/services/clusters";
 
+// Reads the session and request data: this segment renders per request.
+export const instant = false;
+
 export default async function ClustersPage() {
   const translations = { clusters: await getTranslations("clusters"), entities: await getTranslations("entities") };
   const clusters = await clustersApi.list();

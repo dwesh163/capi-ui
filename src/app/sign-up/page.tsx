@@ -2,6 +2,9 @@ import { getTranslations } from "next-intl/server";
 import { SignUp } from "@/components/auth/sign-up";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
+// Reads the session and request data: this segment renders per request.
+export const instant = false;
+
 export default async function SignUpPage() {
   const translations = { signUp: await getTranslations("signUp") };
 
