@@ -6,6 +6,9 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 const nextConfig: NextConfig = {
   output: "standalone",
   outputFileTracingRoot: __dirname,
+  async redirects() {
+    return [{ source: "/", destination: "/clusters", permanent: false }];
+  },
   cacheComponents: true,
   partialPrefetching: true,
   turbopack: {
