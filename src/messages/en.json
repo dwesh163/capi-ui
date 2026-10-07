@@ -112,6 +112,23 @@
       "flavor": "Flavor",
       "ip": "IP",
       "age": "Age"
+    },
+    "filters": {
+      "search": "Search a machine",
+      "role": "Role",
+      "status": "Status",
+      "allRoles": "All roles",
+      "allStatuses": "All statuses",
+      "roles": {
+        "controlPlane": "Control plane",
+        "worker": "Workers"
+      },
+      "statuses": {
+        "ok": "Online",
+        "moving": "In progress",
+        "bad": "Needs attention"
+      },
+      "count": "{shown} of {total}"
     }
   },
   "status": {

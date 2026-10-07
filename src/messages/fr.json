@@ -112,6 +112,23 @@
       "flavor": "Flavor",
       "ip": "IP",
       "age": "Âge"
+    },
+    "filters": {
+      "search": "Rechercher une machine",
+      "role": "Rôle",
+      "status": "Statut",
+      "allRoles": "Tous les rôles",
+      "allStatuses": "Tous les statuts",
+      "roles": {
+        "controlPlane": "Control plane",
+        "worker": "Workers"
+      },
+      "statuses": {
+        "ok": "En ligne",
+        "moving": "En cours",
+        "bad": "À vérifier"
+      },
+      "count": "{shown} sur {total}"
     }
   },
   "status": {

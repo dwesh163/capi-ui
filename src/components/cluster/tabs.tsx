@@ -7,7 +7,7 @@ export async function ClusterTabs({ name, current }: { name: string; current: Ta
   const translations = { tabs: await getTranslations("cluster.tabs") };
 
   return (
-    <nav className="flex gap-5 overflow-x-auto border-b" aria-label={translations.tabs("label")}>
+    <nav className="mt-2 flex gap-5 overflow-x-auto border-b" aria-label={translations.tabs("label")}>
       {TABS.map((tab) => (
         <Link
           key={tab}

@@ -12,7 +12,7 @@ export async function ClusterHead({ cluster }: { cluster: Cluster }) {
   return (
     <header className="flex flex-wrap items-end justify-between gap-x-5 gap-y-3.5">
       <div>
-        <h1 className="flex flex-wrap items-center gap-3.5 font-mono text-3xl font-semibold tracking-tight">
+        <h1 className="flex flex-wrap items-center gap-3.5 text-[clamp(26px,4vw,34px)] leading-tight font-semibold tracking-[-0.03em]">
           {cluster.name}
           <span className="font-sans text-sm font-normal tracking-normal">
             <Phase phase={cluster.phase} tone={cluster.state} />
@@ -25,7 +25,7 @@ export async function ClusterHead({ cluster }: { cluster: Cluster }) {
         </p>
       </div>
       <div className="flex flex-wrap items-center gap-2">
-        <Button variant="outline" asChild>
+        <Button variant="outline" size="sm" asChild>
           {/* a file download: a route handler, not a client navigation */}
           <a href={`/api/clusters/${cluster.name}/kubeconfig`} download>
             <Download />

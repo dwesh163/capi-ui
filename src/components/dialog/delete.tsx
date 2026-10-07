@@ -39,7 +39,7 @@ export function DeleteButton({
   return (
     <AlertDialog open={open} onOpenChange={setOpen}>
       <AlertDialogTrigger asChild>
-        <Button variant="outline" className="text-destructive" disabled={disabled}>
+        <Button variant="outline" size="sm" className="text-destructive" disabled={disabled}>
           <Trash2 />
           {translations.dialog("trigger")}
         </Button>
