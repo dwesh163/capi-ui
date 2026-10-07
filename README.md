@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# capi-ui
 
-## Getting Started
+A web console for [Cluster API](https://cluster-api.sigs.k8s.io/) on OpenStack. It reads a management cluster and shows each workload cluster: health, machines, addons, network, conditions, manifest and events. It can scale workers, download a kubeconfig and delete a cluster.
 
-First, run the development server:
+## Features
+
+- **Cluster view** — version, control plane and worker readiness, API endpoint, failure domains.
+- **Tabs** — machines (search and role/status filters), Helm addons, OpenStack network, conditions, the raw `Cluster` manifest and events.
+- **Actions** — scale workers, download the kubeconfig, delete a cluster (type the name to confirm).
+- **Accounts** — username and password sign-in, backed by SQLite.
+- **English and French**, light and dark theme.
+
+## Stack
+
+Next.js 16 (App Router, Cache Components), TypeScript, Bun, Biome, Tailwind v4 with shadcn/ui, `better-auth` with Prisma 7 on SQLite, `next-intl`, `zod` with `react-hook-form`, `@kubernetes/client-node`.
+
+## Getting started
+
+Requirements: [Bun](https://bun.sh) and a kubeconfig that can read Cluster API resources.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+bun install
+cp .env.example .env   # then fill in the values below
+bun run dev            # generates the Prisma client, applies migrations, starts Next.js
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open <http://localhost:3000>, create an account on `/sign-up`, then sign in.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Environment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Variable             | Description                                                   |
+| -------------------- | ------------------------------------------------------------- |
+| `BETTER_AUTH_SECRET` | Session secret, generate one with `openssl rand -base64 32`.  |
+| `BETTER_AUTH_URL`    | Public URL of the app, e.g. `http://localhost:3000`.          |
+| `DATABASE_URL`       | SQLite file, e.g. `file:./dev.db`.                            |
+| `KUBECONFIG`         | Path to the management cluster kubeconfig.                    |
+| `CAPI_NAMESPACE`     | Namespace holding the clusters (default `capi-clusters`).     |
 
-## Learn More
+## Scripts
 
-To learn more about Next.js, take a look at the following resources:
+| Command              | Description                                  |
+| -------------------- | -------------------------------------------- |
+| `bun run dev`        | Start the dev server (applies migrations).   |
+| `bun run build`      | Generate the Prisma client and build.        |
+| `bun run lint`       | Run Biome.                                   |
+| `bun run db:migrate` | Create a new Prisma migration in development. |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project layout
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+src/
+  app/          routes: (app) is the signed-in console, plus sign-in and sign-up
+  actions/      server actions (scale, delete)
+  services/     one namespace per domain: clusters, machines, addons, networks, events
+  components/   ui/ (shadcn), then one folder per domain
+  constants/    resource identities, expected errors, status maps
+  lib/          auth, Kubernetes client, load helper
+  messages/     en.json and fr.json
+  prisma/       schema and migrations
+```
 
-## Deploy on Vercel
+## Docker
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+docker build -t capi-ui .
+docker run -p 3000:3000 \
+  -v capi-data:/data \
+  -v /path/to/kubeconfig:/kube/config:ro -e KUBECONFIG=/kube/config \
+  -e BETTER_AUTH_SECRET=... -e BETTER_AUTH_URL=http://localhost:3000 \
+  capi-ui
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The SQLite database lives in the `/data` volume and migrations run at startup.
+
+## CI and releases
+
+GitHub Actions lint with Biome on every pull request and push. Pushing a version bump in `package.json` to `main` builds the image, pushes it to GHCR and creates a release.
+
+Commits follow `[tag] Capitalized description` (`feature`, `fix`, `refactor`, `chore`, `docs`, `version`).
