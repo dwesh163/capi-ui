@@ -129,7 +129,8 @@
         "bad": "Needs attention"
       },
       "count": "{shown} of {total}"
-    }
+    },
+    "strip": "Machines at a glance"
   },
   "status": {
     "phase": {
