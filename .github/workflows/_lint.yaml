@@ -1,0 +1,16 @@
+on:
+  workflow_call:
+jobs:
+  lint:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - uses: oven-sh/setup-bun@v2
+        with: { bun-version: latest }
+      - run: bun install --frozen-lockfile
+      - run: bunx biome ci --reporter=github ./src
+      - if: always()
+        run: bunx biome lint --reporter=json ./src > biome-report.json || true
+      - if: always()
+        uses: actions/upload-artifact@v7
+        with: { name: biome-lint-report, path: biome-report.json, retention-days: 7 }
