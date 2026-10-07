@@ -3,12 +3,6 @@
     "title": "Capi",
     "description": "Capi UI"
   },
-  "login": {
-    "title": "Welcome back",
-    "description": "Sign in to your account to continue.",
-    "github": "Continue with GitHub",
-    "error": "Sign-in failed. Please try again."
-  },
   "home": {
     "greeting": "Hello, {name}",
     "signedInAs": "Signed in as {email}",
@@ -16,5 +10,36 @@
   },
   "errors": {
     "unknown": "Something went wrong."
+  },
+  "signIn": {
+    "title": "Welcome back",
+    "description": "Sign in with your username and password.",
+    "username": "Username",
+    "password": "Password",
+    "submit": "Sign in",
+    "error": "Invalid username or password.",
+    "noAccount": "No account yet?",
+    "signUp": "Create one"
+  },
+  "signUp": {
+    "title": "Create an account",
+    "description": "Pick a username and a password.",
+    "name": "Name",
+    "email": "Email",
+    "username": "Username",
+    "password": "Password",
+    "submit": "Create account",
+    "error": "Could not create the account. The username or email may already be taken.",
+    "hasAccount": "Already have an account?",
+    "signIn": "Sign in"
+  },
+  "common": {
+    "validation": {
+      "required": "Required",
+      "invalidEmail": "Invalid email address",
+      "usernameFormat": "Letters, numbers, underscores and dots only",
+      "usernameLength": "Between 3 and 30 characters",
+      "passwordLength": "At least 8 characters"
+    }
   }
 }

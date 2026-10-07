@@ -3,12 +3,6 @@
     "title": "Capi",
     "description": "Capi UI"
   },
-  "login": {
-    "title": "Bon retour",
-    "description": "Connectez-vous à votre compte pour continuer.",
-    "github": "Continuer avec GitHub",
-    "error": "La connexion a échoué. Veuillez réessayer."
-  },
   "home": {
     "greeting": "Bonjour, {name}",
     "signedInAs": "Connecté en tant que {email}",
@@ -16,5 +10,36 @@
   },
   "errors": {
     "unknown": "Une erreur est survenue."
+  },
+  "signIn": {
+    "title": "Bon retour",
+    "description": "Connectez-vous avec votre nom d'utilisateur et votre mot de passe.",
+    "username": "Nom d'utilisateur",
+    "password": "Mot de passe",
+    "submit": "Se connecter",
+    "error": "Nom d'utilisateur ou mot de passe invalide.",
+    "noAccount": "Pas encore de compte ?",
+    "signUp": "En créer un"
+  },
+  "signUp": {
+    "title": "Créer un compte",
+    "description": "Choisissez un nom d'utilisateur et un mot de passe.",
+    "name": "Nom",
+    "email": "E-mail",
+    "username": "Nom d'utilisateur",
+    "password": "Mot de passe",
+    "submit": "Créer le compte",
+    "error": "Impossible de créer le compte. Le nom d'utilisateur ou l'e-mail est peut-être déjà pris.",
+    "hasAccount": "Déjà un compte ?",
+    "signIn": "Se connecter"
+  },
+  "common": {
+    "validation": {
+      "required": "Requis",
+      "invalidEmail": "Adresse e-mail invalide",
+      "usernameFormat": "Lettres, chiffres, tirets bas et points uniquement",
+      "usernameLength": "Entre 3 et 30 caractères",
+      "passwordLength": "8 caractères minimum"
+    }
   }
 }
