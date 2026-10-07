@@ -1,15 +1,7 @@
 {
   "app": {
-    "title": "Capi",
-    "description": "Capi UI"
-  },
-  "home": {
-    "greeting": "Bonjour, {name}",
-    "signedInAs": "Connecté en tant que {email}",
-    "signOut": "Se déconnecter"
-  },
-  "errors": {
-    "unknown": "Une erreur est survenue."
+    "title": "Console CAPI",
+    "description": "Console Cluster API"
   },
   "signIn": {
     "title": "Bon retour",
@@ -41,5 +33,107 @@
       "usernameLength": "Entre 3 et 30 caractères",
       "passwordLength": "8 caractères minimum"
     }
+  },
+  "nav": {
+    "clusters": "Clusters",
+    "toggle": "Afficher ou masquer la barre latérale"
+  },
+  "entities": {
+    "clusters": {
+      "singular": "cluster",
+      "plural": "clusters",
+      "title": {
+        "singular": "Cluster",
+        "plural": "Clusters"
+      }
+    },
+    "machines": {
+      "singular": "machine",
+      "plural": "machines",
+      "title": {
+        "singular": "Machine",
+        "plural": "Machines"
+      }
+    }
+  },
+  "theme": {
+    "label": "Thème",
+    "light": "Clair",
+    "dark": "Sombre",
+    "system": "Système"
+  },
+  "user": {
+    "signOut": "Se déconnecter"
+  },
+  "clusters": {
+    "description": "Clusters gérés par Cluster API.",
+    "empty": "Aucun cluster pour le moment.",
+    "count": "{count, plural, one {# cluster} other {# clusters}}",
+    "columns": {
+      "name": "Nom",
+      "status": "Statut",
+      "version": "Version",
+      "controlPlane": "Control plane",
+      "workers": "Workers",
+      "age": "Âge"
+    }
+  },
+  "cluster": {
+    "facts": {
+      "kubernetes": "Kubernetes",
+      "controlPlane": "Control plane",
+      "workers": "Workers",
+      "endpoint": "Point d'accès API",
+      "ready": "{ready} sur {desired} prêts"
+    }
+  },
+  "machines": {
+    "count": "{count, plural, one {# machine} other {# machines}}",
+    "empty": "Aucune machine dans ce cluster.",
+    "roles": {
+      "controlPlane": "Control plane",
+      "worker": "Worker"
+    },
+    "columns": {
+      "name": "Nom",
+      "role": "Rôle",
+      "status": "Statut",
+      "version": "Version",
+      "flavor": "Flavor",
+      "ip": "IP",
+      "age": "Âge"
+    }
+  },
+  "status": {
+    "phase": {
+      "Running": "En ligne",
+      "Provisioned": "Provisionné",
+      "Provisioning": "Provisionnement",
+      "Pending": "En attente",
+      "Scaling": "Mise à l'échelle",
+      "Deleting": "Suppression",
+      "Deleted": "Supprimé",
+      "Failed": "Défaillant",
+      "Unknown": "Inconnu"
+    }
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "description": "Cette page n'existe pas.",
+    "entity": "{entity} introuvable",
+    "back": "Retour aux {entities}",
+    "home": "Retour à l'accueil"
+  },
+  "error": {
+    "title": "Une erreur est survenue",
+    "retry": "Réessayer"
+  },
+  "errors": {
+    "notFound": "La ressource demandée est introuvable.",
+    "forbidden": "Vous n'avez pas le droit de faire ça.",
+    "unauthorized": "Votre session a expiré. Reconnectez-vous.",
+    "badRequest": "La requête est invalide.",
+    "internal": "L'API du cluster est injoignable.",
+    "unknown": "Une erreur est survenue."
   }
 }

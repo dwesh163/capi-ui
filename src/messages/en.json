@@ -1,15 +1,7 @@
 {
   "app": {
-    "title": "Capi",
-    "description": "Capi UI"
-  },
-  "home": {
-    "greeting": "Hello, {name}",
-    "signedInAs": "Signed in as {email}",
-    "signOut": "Sign out"
-  },
-  "errors": {
-    "unknown": "Something went wrong."
+    "title": "CAPI console",
+    "description": "Cluster API console"
   },
   "signIn": {
     "title": "Welcome back",
@@ -41,5 +33,107 @@
       "usernameLength": "Between 3 and 30 characters",
       "passwordLength": "At least 8 characters"
     }
+  },
+  "nav": {
+    "clusters": "Clusters",
+    "toggle": "Toggle sidebar"
+  },
+  "entities": {
+    "clusters": {
+      "singular": "cluster",
+      "plural": "clusters",
+      "title": {
+        "singular": "Cluster",
+        "plural": "Clusters"
+      }
+    },
+    "machines": {
+      "singular": "machine",
+      "plural": "machines",
+      "title": {
+        "singular": "Machine",
+        "plural": "Machines"
+      }
+    }
+  },
+  "theme": {
+    "label": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "user": {
+    "signOut": "Sign out"
+  },
+  "clusters": {
+    "description": "Clusters managed by Cluster API.",
+    "empty": "No cluster yet.",
+    "count": "{count, plural, one {# cluster} other {# clusters}}",
+    "columns": {
+      "name": "Name",
+      "status": "Status",
+      "version": "Version",
+      "controlPlane": "Control plane",
+      "workers": "Workers",
+      "age": "Age"
+    }
+  },
+  "cluster": {
+    "facts": {
+      "kubernetes": "Kubernetes",
+      "controlPlane": "Control plane",
+      "workers": "Workers",
+      "endpoint": "API endpoint",
+      "ready": "{ready} of {desired} ready"
+    }
+  },
+  "machines": {
+    "count": "{count, plural, one {# machine} other {# machines}}",
+    "empty": "No machine in this cluster.",
+    "roles": {
+      "controlPlane": "Control plane",
+      "worker": "Worker"
+    },
+    "columns": {
+      "name": "Name",
+      "role": "Role",
+      "status": "Status",
+      "version": "Version",
+      "flavor": "Flavor",
+      "ip": "IP",
+      "age": "Age"
+    }
+  },
+  "status": {
+    "phase": {
+      "Running": "Running",
+      "Provisioned": "Provisioned",
+      "Provisioning": "Provisioning",
+      "Pending": "Pending",
+      "Scaling": "Scaling",
+      "Deleting": "Deleting",
+      "Deleted": "Deleted",
+      "Failed": "Failed",
+      "Unknown": "Unknown"
+    }
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "This page does not exist.",
+    "entity": "{entity} not found",
+    "back": "Back to {entities}",
+    "home": "Back home"
+  },
+  "error": {
+    "title": "Something went wrong",
+    "retry": "Try again"
+  },
+  "errors": {
+    "notFound": "The requested resource was not found.",
+    "forbidden": "You are not allowed to do this.",
+    "unauthorized": "Your session has expired. Sign in again.",
+    "badRequest": "The request is invalid.",
+    "internal": "The cluster API could not be reached.",
+    "unknown": "Something went wrong."
   }
 }
