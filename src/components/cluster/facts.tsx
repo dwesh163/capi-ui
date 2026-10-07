@@ -4,9 +4,9 @@ import type { Cluster } from "@/types/cluster";
 function Fact({ label, value, note }: { label: string; value: string; note?: string }) {
   return (
     <div className="min-w-0 py-3.5 pr-4 sm:not-first:border-l sm:not-first:pl-4">
-      <dt className="text-muted-foreground font-mono text-[11px] tracking-wider uppercase">{label}</dt>
-      <dd className="mt-1 truncate font-mono text-xl font-medium tracking-tight">{value}</dd>
-      {note && <small className="text-muted-foreground block truncate text-xs">{note}</small>}
+      <dt className="text-muted-foreground font-mono text-[11px] font-medium tracking-[0.08em] uppercase">{label}</dt>
+      <dd className="mt-1.5 truncate font-mono text-xl font-medium tracking-tight">{value}</dd>
+      {note && <small className="text-muted-foreground mt-0.5 block truncate text-xs">{note}</small>}
     </div>
   );
 }

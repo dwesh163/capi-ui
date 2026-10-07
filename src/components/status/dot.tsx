@@ -21,7 +21,7 @@ export function StatusDot({
   className?: string;
 }) {
   return (
-    <span className={cn("inline-flex items-center gap-2 whitespace-nowrap text-sm", className)}>
+    <span className={cn("inline-flex items-center gap-2 whitespace-nowrap text-[13px]", className)}>
       <span aria-hidden className={cn("size-[7px] shrink-0 rounded-full", TONES[tone])} />
       {dotOnly ? <span className="sr-only">{label}</span> : label}
     </span>

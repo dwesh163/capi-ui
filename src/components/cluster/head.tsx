@@ -18,7 +18,7 @@ export async function ClusterHead({ cluster }: { cluster: Cluster }) {
             <Phase phase={cluster.phase} tone={cluster.state} />
           </span>
         </h1>
-        <p className="text-muted-foreground mt-1.5">
+        <p className="text-muted-foreground mt-2 text-sm">
           {translations.cluster("subtitle", {
             zones: cluster.failureDomains.length ? cluster.failureDomains.join(", ") : "—",
           })}

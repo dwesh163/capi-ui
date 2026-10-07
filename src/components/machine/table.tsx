@@ -28,14 +28,14 @@ export async function MachineTable({ machines }: { machines: Machine[] }) {
       <TableBody>
         {machines.map((machine) => (
           <TableRow key={machine.name}>
-            <TableCell className="font-mono">{machine.name}</TableCell>
+            <TableCell className="font-mono font-medium">{machine.name}</TableCell>
             <TableCell className="text-muted-foreground">{translations.machines(`roles.${machine.role}`)}</TableCell>
             <TableCell>
               <Phase phase={machine.phase} tone={machine.state} />
             </TableCell>
             <TableCell className="font-mono">{machine.version}</TableCell>
-            <TableCell className="font-mono">{machine.flavor ?? "—"}</TableCell>
-            <TableCell className="font-mono">{machine.ip ?? "—"}</TableCell>
+            <TableCell className="text-muted-foreground font-mono">{machine.flavor ?? "—"}</TableCell>
+            <TableCell className="text-muted-foreground font-mono">{machine.ip ?? "—"}</TableCell>
             <TableCell className="text-muted-foreground">{age(machine.createdAt, locale)}</TableCell>
           </TableRow>
         ))}
