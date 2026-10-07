@@ -9,11 +9,21 @@ const TONES: Record<Tone, string> = {
   idle: "bg-muted-foreground/60",
 };
 
-export function StatusDot({ tone, label, className }: { tone: Tone; label: string; className?: string }) {
+export function StatusDot({
+  tone,
+  label,
+  dotOnly,
+  className,
+}: {
+  tone: Tone;
+  label: string;
+  dotOnly?: boolean;
+  className?: string;
+}) {
   return (
     <span className={cn("inline-flex items-center gap-2 whitespace-nowrap text-sm", className)}>
       <span aria-hidden className={cn("size-[7px] shrink-0 rounded-full", TONES[tone])} />
-      {label}
+      {dotOnly ? <span className="sr-only">{label}</span> : label}
     </span>
   );
 }
