@@ -1,0 +1,20 @@
+{
+  "app": {
+    "title": "Capi",
+    "description": "Capi UI"
+  },
+  "login": {
+    "title": "Bon retour",
+    "description": "Connectez-vous à votre compte pour continuer.",
+    "github": "Continuer avec GitHub",
+    "error": "La connexion a échoué. Veuillez réessayer."
+  },
+  "home": {
+    "greeting": "Bonjour, {name}",
+    "signedInAs": "Connecté en tant que {email}",
+    "signOut": "Se déconnecter"
+  },
+  "errors": {
+    "unknown": "Une erreur est survenue."
+  }
+}

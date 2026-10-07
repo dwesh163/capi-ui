@@ -1,0 +1,20 @@
+{
+  "app": {
+    "title": "Capi",
+    "description": "Capi UI"
+  },
+  "login": {
+    "title": "Welcome back",
+    "description": "Sign in to your account to continue.",
+    "github": "Continue with GitHub",
+    "error": "Sign-in failed. Please try again."
+  },
+  "home": {
+    "greeting": "Hello, {name}",
+    "signedInAs": "Signed in as {email}",
+    "signOut": "Sign out"
+  },
+  "errors": {
+    "unknown": "Something went wrong."
+  }
+}
