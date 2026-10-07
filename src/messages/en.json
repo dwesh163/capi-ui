@@ -35,8 +35,7 @@
     }
   },
   "nav": {
-    "clusters": "Clusters",
-    "toggle": "Toggle sidebar"
+    "clusters": "Clusters"
   },
   "entities": {
     "clusters": {
