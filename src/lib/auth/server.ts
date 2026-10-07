@@ -3,6 +3,7 @@ import { prismaAdapter } from "better-auth/adapters/prisma";
 import { nextCookies } from "better-auth/next-js";
 import { username } from "better-auth/plugins";
 import { headers } from "next/headers";
+import { UnauthorizedError } from "@/constants/errors";
 import { prisma } from "@/lib/prisma";
 
 export const auth = betterAuth({
@@ -19,6 +20,6 @@ export async function session() {
 
 export async function getUser() {
   const result = await session();
-  if (!result?.user) throw new Error("User not authenticated");
+  if (!result?.user) throw new UnauthorizedError();
   return result.user;
 }
